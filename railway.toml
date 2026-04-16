@@ -2,7 +2,7 @@
 buildCommand = "pip install -r requirements.txt"
 
 [deploy]
-startCommand = "gunicorn app:app"
+startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60"
 healthcheckPath = "/"
-healthcheckTimeout = 30
+healthcheckTimeout = 60
 restartPolicyType = "on_failure"
